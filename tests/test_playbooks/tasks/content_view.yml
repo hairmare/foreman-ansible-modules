@@ -16,6 +16,7 @@
     components: "{{ components | default(omit) }}"
     auto_publish: "{{ auto_publish | default(omit) }}"
     solve_dependencies: "{{ solve_dependencies | default(omit) }}"
+    import_only: "{{ import_only | default(omit) }}"
   register: result
 
 - assert:

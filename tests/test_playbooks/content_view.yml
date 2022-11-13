@@ -209,6 +209,36 @@
         content_view_state: absent
         expected_change: false
 
+    # Import Only Content Views
+    - include_tasks: tasks/content_view.yml
+      vars:
+        content_view_name: "Test Import Only Content View"
+        content_view_state: present
+        expected_change: true
+        import_only: true
+        repositories:
+          - name: "Test Repository"
+            product: "Test Product"
+    - include_tasks: tasks/content_view.yml
+      vars:
+        content_view_name: "Test Import Only Content View"
+        content_view_state: present
+        expected_change: false
+        import_only: true
+        repositories:
+          - name: "Test Repository"
+            product: "Test Product"
+    - include_tasks: tasks/content_view.yml
+      vars:
+        content_view_name: "Test Import Only Content View"
+        content_view_state: absent
+        expected_change: true
+    - include_tasks: tasks/content_view.yml
+      vars:
+        content_view_name: "Test Import Only Content View"
+        content_view_state: absent
+        expected_change: false
+
 - hosts: localhost
   collections:
     - theforeman.foreman

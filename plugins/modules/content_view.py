@@ -68,6 +68,11 @@ options:
     description:
       - Solve RPM dependencies by default on Content View publish
     type: bool
+  import_only:
+    description:
+      - Designate this Content View for importing from upstream servers only.
+      - This field cannot be updated.
+    type: bool
   composite:
     description:
       - A composite view contains other content views.
@@ -166,6 +171,7 @@ def main():
             label=dict(),
             composite=dict(type='bool', default=False),
             auto_publish=dict(type='bool', default=False),
+            import_only=dict(type='bool', default=False),
             solve_dependencies=dict(type='bool'),
             components=dict(type='nested_list', foreman_spec=cvc_foreman_spec, resolve=False),
             repositories=dict(type='entity_list', elements='dict', resolve=False, options=dict(

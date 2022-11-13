@@ -14,6 +14,7 @@
     label: "{{ content_view.label | default(omit) }}"
     repositories: "{{ content_view.repositories | default(omit) }}"
     solve_dependencies: "{{ content_view.solve_dependencies | default(omit) }}"
+    import_only: "{{ content_view.import_only | default(omit) }}"
 
 - name: Add content view filters
   theforeman.foreman.content_view_filter:
